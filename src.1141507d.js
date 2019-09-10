@@ -15,8 +15,8 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./cjs/react-dom.production.min.js":"jF7N"}],"W2K+":[function(require,module,exports) {
 module.exports="/wedding.a4aafb79.png";
 },{}],"FLHj":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=r(require("react"));function r(e){return e&&e.__esModule?e:{default:e}}var t=require("./wedding.png"),u=function(){return e.default.createElement("div",{style:{backgroundImage:"url(".concat(t,")"),backgroundPosition:"center",backgroundSize:"cover",backgroundRepeat:"no-repeat",height:"100%",width:"100%"}})};exports.default=u;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=r(require("react")),t=r(require("./wedding.png"));function r(e){return e&&e.__esModule?e:{default:e}}var u=function(){return e.default.createElement("div",{style:{backgroundImage:"url(".concat(t.default,")"),backgroundPosition:"center",backgroundSize:"cover",backgroundRepeat:"no-repeat",height:"100%",width:"100%"}})};exports.default=u;
 },{"react":"HdMw","./wedding.png":"W2K+"}],"H99C":[function(require,module,exports) {
 "use strict";var e=u(require("react")),r=u(require("react-dom")),t=u(require("./App"));function u(e){return e&&e.__esModule?e:{default:e}}r.default.render(e.default.createElement(t.default,null),document.getElementById("root"));
 },{"react":"HdMw","react-dom":"X9zx","./App":"FLHj"}]},{},["H99C"], null)
-//# sourceMappingURL=/src.821439e2.js.map
+//# sourceMappingURL=/src.1141507d.js.map
