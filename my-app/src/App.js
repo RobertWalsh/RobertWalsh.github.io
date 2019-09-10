@@ -1,8 +1,14 @@
 import React from "react";
+import image from './wedding.png';
 
 export default () => (
-  <>
-    <h1>Welcome to React Parcel Micro App!</h1>
-    <p>Hard to get more minimal than this React app.</p>
-  </>
+  <div style={{ 
+    backgroundImage: `url(${image})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100%',
+    width: '100%',
+  }}>
+  </div>
 );
