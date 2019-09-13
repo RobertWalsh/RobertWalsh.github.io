@@ -12,7 +12,7 @@
     "staticPath": "public",
     "watcherGlob": "**"
   },
-  "homepage": "https://buttsoftinc.com",
+  "homepage": "https://robertandtana.com",
   "license": "MIT",
   "dependencies": {
     "gh-pages": "^2.1.1",

@@ -1,5 +1,6 @@
 import React from "react";
-import image from './wedding.png';
+
+const image = require('./images/wedding.png');
 
 export default () => (
   <div style={{ 
@@ -10,5 +11,6 @@ export default () => (
     height: '100%',
     width: '100%',
   }}>
+  Butts
   </div>
 );
