@@ -1,48 +1,54 @@
-import React from "react";
-import Slider from "react-slick";
+import React, { useState } from 'react';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Photos from './pages/photos';
+import Registry from './pages/registry';
 
-const image = require('./images/wedding.png');
-const styles = {
-  background: `url(${image})`,
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  height: '100%',
-  width: '90%',
-};
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Header from './components/header';
+import Footer from './components/footer';
 
-class SimpleSlider extends React.Component {
-  render() {
-    var settings = {
-      arrows: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000
-    };
+const theme = createMuiTheme({
+    palette: {
+        primary: deepPurple,
+        secondary: {
+            main: 'rgba(206,206,206,.9)',
+        },
+    },
+});
+
+const useStyles = makeStyles(() => ({
+    pageComponentContainer: { paddingTop: '50px' }
+}));
+
+function App() {
+    const classes = useStyles();
+
+    const [currentPage, setCurrentPage] = useState('photos');
+
+    let PageComponent = Photos;
+    switch( currentPage ) {
+        case 'photos':
+            PageComponent = Photos;
+            break;
+        case 'registry': 
+            PageComponent = Registry;
+    }
+
+    const changePage = (page) => () => setCurrentPage(page);
+
     return (
-      <div style={{ height: '100%', width: '100%'}}>
-        <iframe src="https://snazzymaps.com/embed/209837" style={{ height: '100%', width: '100%' }}></iframe>
-      <Slider {...settings}>
-        <div>
-          <div style={styles}/>
-        </div>
-        <div>
-          <div style={styles} />
-        </div>
-      </Slider>
-      </div>
+        <ThemeProvider theme={theme}>
+            <div style={{ height: '100%', width: '100%'}}>
+                <Header onChangePage={changePage} currentPage={currentPage}/>
+                <div className={classes.pageComponentContainer}>
+                    <PageComponent />
+                </div>
+                <Footer />
+            </div>
+        </ThemeProvider>
     );
-  }
 }
-
-export default () => (
-  <div>    
-    <SimpleSlider />
-  </div>
-);
+    
+export default App;
+        
