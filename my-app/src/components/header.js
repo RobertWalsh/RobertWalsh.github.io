@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+const image = require('../images/website-background.jpg');
+
 const useStyles = makeStyles(theme => ({
     root: {
         '& > *': {
@@ -17,12 +19,15 @@ const useStyles = makeStyles(theme => ({
     header: {
         position: 'fixed',
         zIndex: 2000,
-        height: '50px',
+        height: '5vh',
         width: '100%',
-        background: theme.palette.secondary.main,
+        background: `url(${image})`,
         display: 'flex',
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
     }
 }));
 
@@ -31,8 +36,7 @@ function Header({onChangePage}) {
     return (
         <AppBar className={classes.header}>
             <Toolbar>
-                <Button color="primary" onClick={onChangePage('photos')}>Photos</Button>
-                <Button color="primary" onClick={onChangePage('registry')}>Registry</Button>
+                
             </Toolbar>
         </AppBar>
     );

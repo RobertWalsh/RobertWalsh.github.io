@@ -9,7 +9,7 @@
     "deploy": "gh-pages -b master -d dist"
   },
   "staticFiles": {
-    "staticPath": "public",
+    "staticPath": "src/fonts",
     "watcherGlob": "**"
   },
   "homepage": "https://robertandtana.com",
@@ -20,6 +20,7 @@
     "gh-pages": "^2.1.1",
     "google-map-react": "^1.1.5",
     "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
     "parcel": "^1.12.4",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -33,7 +34,8 @@
     "@babel/core": "^7.7.7",
     "babel-preset-nano-react-app": "^0.1.0",
     "parcel-bundler": "^1.12.4",
-    "parcel-plugin-static-files-copy": "^2.2.1"
+    "parcel-plugin-static-files-copy": "^2.2.1",
+    "sass": "^1.25.0"
   },
   "babel": {
     "presets": [

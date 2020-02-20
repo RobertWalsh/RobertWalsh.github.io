@@ -1,4 +1,6 @@
 import React from "react";
+// import  '../../public/fonts/*';
+// console.log(fonts);
 
 function RegistryPage() {
     return (

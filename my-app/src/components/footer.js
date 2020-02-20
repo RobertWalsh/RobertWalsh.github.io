@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
     footer: {
-        background: theme.palette.secondary.main,
+        backgroundColor: 'transparent',
         display: 'flex',
         justifyContent: 'space-around',
         flexDirection: 'column',
@@ -19,11 +19,8 @@ function Footer() {
     const classes = useStyles();
     return (
         <div className={classes.footer}>
-            <div style={{ height: '75%', width: '50%' }}>
-                <iframe style={{ height: '100%', width: '100%' }} src="https://snazzymaps.com/embed/209837"></iframe>
-            </div>
-            <div>
-                Poop
+            <div style={{ height: '75%', width: '100%' }}>
+                <iframe style={{ border: 0, height: '100%', width: '100%' }} src="https://snazzymaps.com/embed/209837"></iframe>
             </div>
         </div>
     );
