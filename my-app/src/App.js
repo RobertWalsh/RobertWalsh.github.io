@@ -8,9 +8,10 @@ import PhotoGrid from './pages/photo-grid';
 require('./styles.css');
 
 const image = require('./images/website-background.jpg');
-const image2 = require('./images/website-moonboy.png');
 const image3 = require('./images/website-image1.jpg');
 const titleImage = require('./images/website-title.png');
+const rightSwoosh = require('./images/website-right-side-flourish.png');
+const leftSwoosh = require('./images/website-left-side-flourish.png');
 
 const styles = {
     background: `url(${image})`,
@@ -24,10 +25,6 @@ const styles = {
 const styles2 = {
     justifyContent: 'center',
     textAlign: 'center',
-    zIndex: 2001,
-    position: 'fixed',
-    width: '100%',
-    top: '4vh',
     backgroundColor: 'transparent',
 };
 
@@ -76,33 +73,76 @@ const useStyles = makeStyles((theme) => ({
     },
     venuText: {
         fontFamily: 'Mirosa', 
-        fontSize: '2vw', 
+        fontSize: '3vw', 
         color: 'white',
         padding: '25px 0 10px',
+        ['@media (min-width:600px)']: {
+            fontSize: '2.5vw',
+        },
+    },
+    subContent: {
+        backgroundColor: '#000',
+        margin: '1vh 0',
+        padding: '2vw 0'
+    },
+    subHeaderText: {
+        fontFamily: 'Oswald',
+        fontSize: '3vw',
+        fontStyle: 'italic',
+        fontWeight: 100,
+        color: 'white',
+        margin: '0 1vw',
+        textAlign: 'center',
+        ['@media (min-width:600px)']: {
+            fontSize: '2vw',
+        },
+    },
+    subHeaderSubText: {
+        fontFamily: 'Oswald',
+        fontSize: '2.5vw',
+        fontWeight: 100,
+        color: 'white',
+        margin: '0 1vw',
+        textAlign: 'center',
+        ['@media (min-width:600px)']: {
+            fontSize: '1.5vw',
+        },
     },
     venuLink: {
         fontFamily: 'Mirosa',
-        fontSize: '2vw',
+        fontSize: '3vw',
         color: 'white',
         textDecoration: 'none',
+        ['@media (min-width:600px)']: {
+            fontSize: '2.5vw',
+        },
+    },
+    hotelLink: {
+        fontFamily: 'Oswald',
+        fontSize: '2.5vw',
+        fontWeight: 100,
+        color: 'white',
+        textAlign: 'center',
+        ['@media (min-width:600px)']: {
+            fontSize: '1.5vw',
+        },
     },
     dateText: {
         fontFamily: 'Mirosa',
         fontSize: '3.4vw',
         color: 'white',
         letterSpacing: '20px',
+        paddingBottom: '4vh'
     },
 }));
 
 function App() {
     const classes = useStyles();
+
     return (
         <div style={styles} >
             <ThemeProvider theme={theme}>
                 <Header/>
-                <div style={styles2}>
-                    <img src={image2} style={{ height: 'auto', width: '5vw' }}/>
-                </div>
                 <div className={classes.pageComponentContainer}>
                     <div className={classes.titleAndImage}>
                         <img src={image3} style={{ height: 'auto', width: '100%' }} />
@@ -113,8 +153,40 @@ function App() {
                     </div>
                     <div className={classes.dateText}>10•03•20</div>
                 </div>
-                <PhotoGrid/>
-                <Footer /> 
+                <div className={classes.subContent}>
+                    <div style={{display:'flex', justifyContent: 'center', paddingTop: '3vh'}}>
+                        <div style={styles2}>
+                            <img src={leftSwoosh} style={{ height: 'auto', width: '5vw' }} />
+                        </div>
+                        <div className={classes.subHeaderText}>Stay With Us!</div>
+                        <div style={styles2}>
+                            <img src={rightSwoosh} style={{ height: 'auto', width: '5vw' }} />
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'column', paddingBottom: '3vh'}}>
+                        <div className={classes.subHeaderSubText}>
+                            We highly recommend grabbing a room at the <a className={classes.hotelLink} href={'https://www.marriott.com/event-reservations/reservation-link.mi?id=1573588266448&key=GRP&app=resvlink/'}>Hotel Zachary</a>
+                        </div>
+                        <div className={classes.subHeaderSubText}>Click on the map to see more info.</div>
+                    </div>
+                    <Footer /> 
+                </div>
+                <div className={classes.subContent}>
+                    <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '3vh' }}>
+                        <div style={styles2}>
+                            <img src={leftSwoosh} style={{ height: 'auto', width: '5vw' }} />
+                        </div>
+                        <div className={classes.subHeaderText}>See our photos</div>
+                        <div style={styles2}>
+                            <img src={rightSwoosh} style={{ height: 'auto', width: '5vw' }} />
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '3vh' }}>
+                        <div className={classes.subHeaderSubText}>Scroll to the right to see a few photos from our engagement photoshoot!</div>
+                        <div className={classes.subHeaderSubText} style={{fontSize: '1vw', paddingTop: '4px'}}><span style={{fontSize: '.8vw'}}>Ⓒ</span>	Nicole Speer Photography</div>
+                    </div>
+                    <PhotoGrid />
+                </div>
             </ThemeProvider>
         </div>
     );

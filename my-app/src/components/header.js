@@ -19,7 +19,6 @@ const useStyles = makeStyles(theme => ({
     header: {
         position: 'fixed',
         zIndex: 2000,
-        height: '5vh',
         width: '100%',
         background: `url(${image})`,
         display: 'flex',
