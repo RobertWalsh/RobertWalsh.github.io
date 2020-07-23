@@ -18,7 +18,7 @@ function Footer() {
     const classes = useStyles();
     return (
         <div className={classes.footer}>
-            <div style={{ height: '30vh', width: '100%' }}>
+            <div style={{ height: '30vh', width: '75%' }}>
                 <iframe style={{ border: 0, height: '100%', width: '100%' }} src="https://snazzymaps.com/embed/209837"></iframe>
             </div>
         </div>

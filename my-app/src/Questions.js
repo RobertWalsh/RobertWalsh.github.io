@@ -1,9 +1,4 @@
-import React, { useState } from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-} from "react-router-dom";
+import React from 'react';
 
 import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Header from './components/header';
@@ -25,7 +20,6 @@ const kristen = require('./images/kristen.jpg');
 const suzy = require('./images/suzy.png');
 const jones = require('./images/jones.png');
 const russell = require('./images/russell.png');
-const heather = require('./images/heather2.png');
 
 const marquee = require('./images/music-box-marquee.jpg');
 const airbnb = require('./images/airbnb.png');
@@ -56,8 +50,8 @@ const styles = {
     backgroundSize: 'cover',
     width: '100%',
     display: 'flex',
+    minHeight: '100%',
     flexDirection: 'column',
-    paddingTop: '50px',
 };
 const styles2 = {
     justifyContent: 'center',
@@ -79,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column', 
         width: '100%', 
+        paddingTop: '50px' 
     },
     root: {
         display: 'flex',
@@ -120,10 +115,6 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#000',
         margin: '20px 0',
         padding: '2vw 0'
-    },
-    questionsSubContent: {
-        backgroundColor: '#000',
-        padding: '20px 0 0',
     },
     starSubContent: {
         backgroundColor: '#000',
@@ -174,9 +165,6 @@ const useStyles = makeStyles((theme) => ({
         ['@media (min-width:600px)']: {
             fontSize: '2.5vw',
         },
-    },
-    emailLink: {
-        color: 'white',
     },
     hotelLink: {
         fontFamily: 'Oswald',
@@ -230,7 +218,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '0 2vw',
         backgroundColor: 'transparent',
         color: 'white',
-        minWidth: '12vw',
+        minWidth: '15vw',
         ['@media (max-width:600px)']: {
             margin: '0 1vw',
             minWidth: '20vh',
@@ -362,49 +350,7 @@ const useStyles = makeStyles((theme) => ({
             minWidth: '20vh',
             padding: '4vh 0 4vh',
         },
-    },
-    questionsTitle: {
-        fontFamily: 'Oswald',
-        fontSize: '2.5vw',
-        color: 'white',
-        fontWeight: 600,
-        margin: '0 1vw',
-        textAlign: 'center',
-        maxWidth: '55%',
-        alignSelf: 'center',
-        paddingTop: '10px',
-        ['@media (min-width:600px)']: {
-            fontSize: '1.5vw',
-        },
-    },
-    questionsText: {
-        fontFamily: 'Oswald',
-        fontSize: '2.5vw',
-        color: 'white',
-        fontWeight: 300,
-        margin: '0 1vw',
-        textAlign: 'center',
-        maxWidth: '55%',
-        alignSelf: 'center',
-        paddingTop: '10px',
-        ['@media (min-width:600px)']: {
-            fontSize: '1.25vw',
-        },
-    },
-    readMoreAboutCovid: {
-        fontFamily: 'Oswald',
-        fontSize: '2.5vw',
-        color: 'white',
-        fontWeight: 300,
-        margin: '0 1vw',
-        textAlign: 'center',
-        maxWidth: '55%',
-        alignSelf: 'center',
-        paddingTop: '10px',
-        ['@media (min-width:600px)']: {
-            fontSize: '1.25vw',
-        },
-    },
+    }
 }));
 
 function PartyPerson(props) {
@@ -454,23 +400,12 @@ function PartyHotel(props) {
 }
 
 
-function Questions(props) {
-    const classes = useStyles();
-    return (
-        <Card className={classes.cardRootHotel}>
-            <CardActionArea style={{ textAlign: 'center', height: '8vw' }} onClick={() => { window.open(props.url, "_blank") }}>
-                <img src={props.image} style={{ height: 'auto', width: '8vw', ...get(props, 'style', {}) }} />
-            </CardActionArea>
-        </Card>
-    )
-}
-
 function App() {
     const classes = useStyles();
     return (
         <div style={styles} >
             <ThemeProvider theme={theme}>
-                <Header currentPage={'main'}/>
+                <Header/>
                 <div className={classes.pageComponentContainer}>
                     <div className={classes.titleAndImage}>
                         <img src={image3} style={{ height: 'auto', width: '100%' }} />
@@ -504,22 +439,6 @@ function App() {
                     </div>
                     <img src={starImage} style={{ padding: '2vw, 0 0', height: 'auto', width: '100%' }} />
                 </div>
-                <div className={classes.subContent}>
-                    <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '3vh' }}>
-                        <div style={styles2}>
-                            <img src={leftSwoosh} style={{ height: 'auto', width: '5vw' }} />
-                        </div>
-                        <div className={classes.subHeaderText}>Covid Update</div>
-                        <div style={styles2}>
-                            <img src={rightSwoosh} style={{ height: 'auto', width: '5vw' }} />
-                        </div>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '3vh' }}>
-                        <div className={classes.ourStoryText}>
-                            We’ve all heard enough - no doubt! Chicago is in Phase 4 which means gatherings of 50 people or less which allows us to have a very small wedding this year. We are now planning on a large event to celebrate our 1 year anniversary with everyone here in Chicago! Change the dates have been sent for 10/22/2021 and formal invitations will follow. Two events means twice the fun, right?! Stay tuned!
-                        </div>
-                    </div>
-                </div>
                 <div className={classes.subContent} id='weddingparty'>
                     <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '3vh' }}>
                         <div style={styles2}>
@@ -539,7 +458,6 @@ function App() {
                             <PartyPerson name={'Kristen Lindstrom'} title={'Bridesmaid'} subTitle={'Friend of the Bride'} image={kristen}/>
                             <PartyPerson name={'Suzy Bowes'} title={'Bridesmaid'} subTitle={'Friend of the Bride'} image={suzy}/>
                             <PartyPerson name={'Russell Walsh'} title={'Best Man'} subTitle={'Brother of the Groom'} image={russell}/>
-                            <PartyPerson name={'Heather Collins'} title={`Best Groomswoman`} subTitle={'Best Friend of the Groom'} image={heather} />
                             <PartyPerson name={'Chris Jones'} title={'Groomsman'} subTitle={'Friend of the Groom'} image={jones}/>
                         </div>
                     </div>
@@ -628,7 +546,7 @@ function App() {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '3vh' }}>
                         <div className={classes.subHeaderSubText}>Scroll to the right to see a few photos from our engagement photoshoot!</div>
-                        <div className={classes.subHeaderSubText} style={{ fontSize: '1vw', paddingTop: '4px' }}><span style={{ fontSize: '.8vw' }}>Ⓒ</span>	Nicole Speer Photography</div>
+                        <div className={classes.subHeaderSubText} style={{fontSize: '1vw', paddingTop: '4px'}}><span style={{fontSize: '.8vw'}}>Ⓒ</span>	Nicole Speer Photography</div>
                     </div>
                     <PhotoGrid />
                 </div>
@@ -636,93 +554,5 @@ function App() {
         </div>
     );
 }
-
-function Questions(props) {
-    const classes = useStyles();
-    return (
-        <div style={styles}>
-            <Header currentPage={'questions'} />
-            <div className={classes.questionsSubContent} id='ourstory'>
-                <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '5vw' }}>
-                    <div style={styles2}>
-                        <img src={leftSwoosh} style={{ height: 'auto', width: '5vw' }} />
-                    </div>
-                    <div className={classes.subHeaderText}>Questions</div>
-                    <div style={styles2}>
-                        <img src={rightSwoosh} style={{ height: 'auto', width: '5vw' }} />
-                    </div>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '3vh', paddingTop: '3vw', }}>
-                    <div className={classes.questionsTitle}>
-                        What’s the deal with Chicago & COVID?
-                    </div>
-                    <div className={classes.questionsText}>
-                        Chicago is in ‘Phase 4’ which means gatherings of 50 people or less are permitted. Because of that, we have decided to still get married on 10/03/2020 but it will be a very small event. 
-                    </div>
-                    <div className={classes.questionsText}>
-                        <a className={classes.readMoreAboutCovid} href={'https://www.illinoispolicy.org/what-you-need-to-know-about-coronavirus-in-illinois/'}>Read more about Chicago + COVID here.</a>
-                    </div>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '3vh' }}>
-                    <div className={classes.questionsTitle}>
-                        What can I expect for 10/22/2021?
-                    </div>
-                    <div className={classes.questionsText}>
-                        We’re still excited to share a special celebration with everyone! Fingers crossed in a year, larger parties can gather safely and we are planning to have a 1 year celebration on 10/22/2021 at Ravenswood Event Center in Chicago. Stay tuned for a formal invitation and more details!
-                    </div>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '3vh' }}>
-                    <div className={classes.questionsTitle}>
-                        Where are the ceremony and reception?
-                    </div>
-                    <div className={classes.questionsText}>
-                        Both the ceremony and reception will be held at Ravenswood Event Center which is located at 4021 North Ravenswood Avenue, Chicago, IL 60613. There is easy, free street parking along the building if you choose to drive.
-                    </div>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '3vh' }}>
-                    <div className={classes.questionsTitle}>
-                        What time does everything begin?
-                    </div>
-                    <div className={classes.questionsText}>
-                        If you’re in town on Friday October 2nd, join us in the Hotel Zachary bar from 7-9pm for drinks and food on us! The ceremony will be held at 6:00pm Saturday October 3rd 2020. Immediately following the reception will be a cocktail hour, then dinner, drinks and dancing!
-                    </div>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '3vh' }}>
-                    <div className={classes.questionsTitle}>
-                        What should I wear?
-                    </div>
-                    <div className={classes.questionsText}>
-                        We’re hoping you want to get all dolled-up with us and put on your best cocktail duds for the festivities!
-                    </div>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '3vh' }}>
-                    <div className={classes.questionsTitle}>
-                        Other questions?
-                    </div>
-                    <div className={classes.questionsText}>
-                        Hit us up and let us know! Email <a className={classes.emailLink} href={'mailto:tkbabcock@gmail.com'}>Tana</a> or <a className={classes.emailLink} href={'mailto:rjwalsh1985@gmail.com'}>Robert</a> directly :)
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function RoutedApp() {
-    return (
-        <Router>
-            <ThemeProvider theme={theme}>
-                <Switch>
-                    <Route path="/questions">
-                        <Questions />
-                    </Route>
-                    <Route path="/">
-                        <App />
-                    </Route>
-                </Switch>
-            </ThemeProvider>
-        </Router>
-    );
-}
     
-export default RoutedApp;
+export default App;
